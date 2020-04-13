@@ -55,7 +55,7 @@ continue 5
 expectPORTD 0xFF
 checkResult
 
-test "PINA: 0x20, PINB: 0x00, PINC: 0x20 => PORTD: 0x02" //checking for PD1
+test "PINA: 0x02, PINB: 0x00, PINC: 0x20 => PORTD: 0x02" //checking for PD1
 setPINA 0x20
 setPINB 0x00
 setPINC 0x20

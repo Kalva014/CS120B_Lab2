@@ -19,13 +19,12 @@ int main(void) {
     DDRC = 0x00; PORTC = 0x00; 
     DDRD = 0xFF; PORTD = 0x00; //Output
 	
-    unsigned char totalWeight = 0; //weight of the seats a, b, and c 
-    unsigned char weightA = 0;
-    unsigned char weightB = 0;
-    unsigned char weightC = 0;
-    unsigned char weightD = 0;
-
     while(1) {
+	unsigned char totalWeight = 0; //weight of the seats a, b, and c
+        unsigned char weightA = 0;
+        unsigned char weightB = 0;
+        unsigned char weightC = 0;
+        unsigned char weightD = 0;
 	weightA = PINA;
 	weightB = PINB;
 	weightC = PINC;
