@@ -21,27 +21,23 @@ int main(void) {
 	
     while(1) {
 	unsigned char totalWeight = 0; //weight of the seats a, b, and c
-        unsigned char weightA = 0;
-        unsigned char weightB = 0;
-        unsigned char weightC = 0;
+        unsigned char weightA = PINA;
+        unsigned char weightB = PINB;
+        unsigned char weightC = PINC;
         unsigned char weightD = 0;
-	weightA = PINA;
-	weightB = PINB;
-	weightC = PINC;
-	
-	totalWeight = (weightA + weightB + weightC) / 3;
-        weightD = totalWeight;
-	weightD = PIND << 2;
+
+	totalWeight = (weightA + weightB + weightC);
 
         if(totalWeight > 140) {
 		weightD = weightD | 0x01;
 	}
 
-	if(weightA - weightC > 80) {
+	if((weightA - weightC) > 80) {
 		weightD = weightD | 0x02;
 	}	
 	
-	PORTD = weightD;
+	//totalWeight = totalWeight << 2;
+	PORTD = weightD | totalWeight;
     }
 
    return 0;
