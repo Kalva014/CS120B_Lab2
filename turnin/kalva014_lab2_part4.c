@@ -23,6 +23,7 @@ int main(void) {
     unsigned char weightA = 0;
     unsigned char weightB = 0;
     unsigned char weightC = 0;
+    unsigned char weightD = 0;
 
     while(1) {
 	weightA = PINA;
@@ -30,16 +31,18 @@ int main(void) {
 	weightC = PINC;
 	
 	totalWeight = (weightA + weightB + weightC) / 3;
-        PORTD = totalWeight;
-	PORTD = PIND << 2;
+        weightD = totalWeight;
+	weightD = PIND << 2;
 
-        if(totalWeight >= 140) {
-		PORTD = PIND | 0x01;
+        if(totalWeight > 140) {
+		weightD = weightD | 0x01;
 	}
 
 	if(weightA - weightC > 80) {
-		PORTD = PIND | 0x02;
+		weightD = weightD | 0x02;
 	}	
+	
+	PORTD = weightD;
     }
 
    return 0;
